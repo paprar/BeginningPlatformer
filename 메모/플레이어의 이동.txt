@@ -1,0 +1,91 @@
+플레이어의 이동
+
+이동 방법
+
+1. position을 직접 이동
+2. translate를 이용하여 포지션 변경
+3. velocity 적용
+4. force 적용
+
+
+2. transform.Translate
+
+using UnityEngine;
+using System.Collections;
+
+public class Control : MonoBehaviour {
+        // Update is called once per frame
+        int speed=10; //스피드 
+        int yspeed=30;
+
+        void Update () {
+                float xMove=Input.GetAxis ("Horizontal")*speed*Time.deltaTime ; //x축으로 이동할 양
+                float yMove=Input.GetAxis ("Vertical")*yspeed*Time.deltaTime; //y축으로 이동할양
+                this.transform.Translate(new Vector3(xMove,yMove,0));  //이동
+
+        }
+}
+
+
+3. rigidbody2D.velocity
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test2 : MonoBehaviour
+{
+    int speed = 5;
+    Rigidbody2D rb;
+    // Start is called before the first frame update
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // 입력 값 받기
+        float moveHorizontal = Input.GetAxis("Horizontal"); // A/D 키 또는 화살표 좌우
+        float moveVertical = Input.GetAxis("Vertical");     // W/S 키 또는 화살표 상하
+
+        // 속도 설정
+        Vector2 movement = new Vector2(moveHorizontal, moveVertical);
+
+        // Rigidbody2D의 속도 설정
+        rb.velocity = movement * speed;
+    }
+}
+
+
+4. rigidbody2D.AddForce: 물리적 힘을 가하여 점진적으로 속도를 증가시키는 방식으로 움직임 구현, 관성, 중령, 마찰 등의 물리적인 효과를 적용해야하는 경우에 적합, 보다 자연스러운 움직임 제공.
+
+
+
+참고
+
+*GetAxis: 사용자의 입력 값을 받아오는 함수, 조이스틱, 키보드, 마우스 입력을 처리하는데 사용됨. Input.GexAxis는 유니티의 Input 시스템에서 제공되며, 부드러운 이동이나 회전을 구현하는데 유용함.
+
+GetAxis는 축(axis) 기반 입력 값을 반환함. 예를 들어, 플레이어가 키보드의 화살표 키나 wasd를 사용하거나 게임 컨트롤러의 조이스틱을 움직일 때 입력 값을 숫자로 가져올 수 있음. 이 값은 -1.0~1.0까지의 범위를 가지며, 입력의 강도나 방향을 나타냄.
+
+-1.0: 축의 반대 방향(왼쪽, 아래), 0: 축이 중립 상태(입력 없음), 1.0: 축의 정방향(오른쪽, 위)
+
+주요 사용 사례: 플레이어 움직임, 카메라 회전 등
+
+GetAxisRaw는 입력값을 즉각적으로 사용해서(-1,0,1만 사용) 가속 감속 효과를 포함하지 않음.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

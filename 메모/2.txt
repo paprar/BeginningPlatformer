@@ -1,0 +1,46 @@
+비활성화 alt shift a: inspector 창의 이름 옆 박스(toggle box) 체크해제
+
+컴포넌트: 
+
+개발 가장 중요 상속 ctrl c v 고블린 이동 공격 대사
+
+선택된 오브젝트의 인스펙터창 띄우기 alt p 컴포넌트 추가는 add component
+
+에셋 사이트: kenny asset(로그인 안하고 다운 가능)
+
+
+타일맵 - sprite mode를 multiple로 하면 여러개로 나눠짐. sprite editor에서 slice하고 apply하면 됨.
+
+pixels per unit: 유닛당 차지하는 픽셀의 비율, 적으면 오브젝트 기본 사이즈가 커지고 많으면 오브젝트 기본 사이즈가 작아짐.
+
+
+renderer: 카메라에 보여지게 하는 것
+
+타일 팔레트: window-2d-tile palette 
+
+만드는 과정
+
+1. create new palette로 팔레트 오브젝트 만듦
+
+2. 타일맵의 오브젝트들을 모두 선택하고 타입 팔레트로 이동시키고 따로 저장
+
+
+이동안됨.
+
+window shift s 스크린샷
+
+유니티 슈팅게임 안된건 게임 매니저에 플레이어가 없었기 때문
+
+
+타일 팔레트
+
+마우스 버튼: 영역 선택
+화살표 네방향: 이동
+붓 모양: 선택된 오브젝트 복사(상측 붓모양 선택하고 우측 붓모양으로 영역을 따로 선택해야함, 그 후 우측 붓모양을 선택해제하고 복사)
+
+add tag - sorting layers 레이어 가장 아래 있는게 가장 위에 보여짐
+
+sprite renderer 또는 tilemap renderer에 sorting layers에서 선택해서 분류
+
+
+타일맵 스프라이트 에디터에서 분할한 타일들은 각각 규격이 안맞을 수 있음. 그래서 포토샵으로 규격화 시켜야함.

@@ -1,0 +1,58 @@
+25.2.8
+
+픽셀 하나당 점 4개로 이루어짐.
+
+vertex shader
+
+material 재질, create-material로 추가 가능
+
+shader: 2d의 경우 3가지 존재 material-lit/mask/material-unlit
+
+lit: light의 줄임말, 빛의 영향을 받게 만듦, unlit: 빛의 영향 안받게 만듦.
+
+
+오늘 할것: 이펙트 효과
+
+포토샵: image-trim/canvas size 
+
+
+파티클 입자로써 넣을려면 마테리얼에 넣어야함.
+
+
+파티클 입자 바꾸는법: 파티클 버튼 확장-Renderer 클릭-material 변경
+
+파티클 - transform 리셋하면 모양 달라짐.
+
+
+파티클 기능
+
+prewarm: 시작하자마자 많이 나오는 상태로 바꿈.
+
+emission: 한번에 나오는 입자의 개수 조절, 너무 과하면 과부하옴.
+
+shape: 입자가 퍼지는 방향 각도 조절
+
+noise: 입자가 각자 다른 방향으로 움직임
+
+gravity modifier: 중력의 힘을 조절
+
+force over lifetime: 입자가 움직이는 방향 각도 조절
+
+start size: 입자 크기 조절
+
+size over lifetime: 입자가 표시되는 동안 사이즈 변경
+
+texture sheet animation: 입자의 텍스쳐 변경
+
+velocity over lifetime: 이동에 따른 입자의 생성방향 설정
+
+*파티클 입자의 색을 원하는대로 변경하려면 입자의 텍스쳐가 하얀색이어야 함.
+
+
+*도구-옵션-텍스트편집기-모든 언어-줄 번호: 비활성화하면 스크립트의 번호가 사라짐.
+
+
+파티클 시스템 포스 필드: 중력제어
+
+
+포토샵으로 신체부위 만들어서 움직이게 하는거 sprite editor에서 설정

@@ -1,0 +1,38 @@
+UI의 요소를 추가하기 위해선 캔버스가 필요함. 캔버스 안에 자식으로 추가됨, 이벤트시스템도 추가되야함.
+
+UI 기본세팅
+
+1. canvas-canvas scaler -> ui scale mode: scale with screen size
+
+2. game-display 옆-full hd
+
+3. 이미지-inspector-texture type: sprite(2d and ui)
+
+
+오브젝트 크기 변경: R이나 T키
+
+UI이미지 크기 전체화면에 맞추기: rect transform 좌측 이미지에서 우측하단 strecth 누르고 shift alt도 같이 누름.
+
+
+에셋 사이트: kenny assets
+
+
+오브젝트 확대: f키
+
+
+UI 이미지들을 일정한 간격으로 정렬할때: 부모 오브젝트에 Layer Group 컴포넌트 적용, 붙어서 추가되게 하려면 Content Size Fitter도 적용
+
+
+UI 텍스트 - Auto Size: 글자가 노란 화면에 맞춰짐.
+
+
+텍스트 다운받고 적용
+
+1. ttf 파일을 assets-textmesh pro-fonts에 붙여넣기
+
+2. window-textmesh pro-font asset creator-source font file에 ttf 파일 붙여넣고 generate font atlas로 생성하고 저장
+
+3. ui-text 생성하고 font asset에 해당 파일 붙여넣기
+
+4. 폰트 sdf 파일의 인스펙터 창에서 generation settings-atlas population mode:dynamic,sampling point size:50으로 수정
+

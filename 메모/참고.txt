@@ -1,0 +1,36 @@
+참고
+
+1. 타입 선언 없이 초기화하는 경우 그 이유
+앞에 타입선언 없이 사용하는건 변수가 이미 선언되어있을 경우 해당 변수에 값을 재할당할수 있기 때문
+
+2. 특정 변수 앞에 new를 추가하는 이유
+예를 들어 transform.position = new Vector2(-8f,2f);에서 Vector2 앞에 new를 붙이는 이유는 Vector2가 구조체이기 때문 구조체는 하나 이상의 변수를 하나로 묶을 수 있는 복합 자료형임.
+
+Vector2(x,y)는 Vector2 구조체의 생성자로 두개의 float 값을 받아 Vector2 객체를 초기화함.
+
+생성자와 메서드의 차이: 메서드는 이미 존재하는 객체에서 호출되고, 객체의 동작을 정의함. 예 vector.Normalize(); vector 객체의 메서드 호출
+
+반면, Vector2(x,y)는 객체를 생성하고 초기화하기 위한 것이므로 메서드가 아니라 생성자임. 생성자는 객체의 동작을 정의하는게 아니라, 객체가 처음 만들어질때 어떤 값을 가질지를 설정하는 역할을 함. 메서드는 객체 이름과 함께 호출하고 생성자는 new 키워드와 함께 호출함.
+
+예시
+
+using UnityEngine;
+
+public class Example : MonoBehaviour
+{
+    void Start()
+    {
+        // 1. 생성자를 사용하여 Vector2 객체 생성
+        Vector2 position = new Vector2(1.0f, 2.0f);
+        
+        // 2. 생성된 객체의 메서드 사용
+        position.Normalize(); // 벡터를 정규화 (길이를 1로 만듦)
+
+        Debug.Log(position); // 결과 출력
+    }
+}
+
+
+
+
+gpt로는 코드로 설정하는 것 이외에 컴포넌트로 설정하는 문제를 해결하기 힘듬. 해당 기능을 하는 컴포넌트를 알고 있어야 함.

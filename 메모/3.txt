@@ -1,0 +1,76 @@
+오브젝트가 가려질 경우 인스펙터창의 additional settings의 order in layer값을 수정하면 됨.
+
+project settings-physics 2D gravity 방향 x,y
+
+
+*컴포넌트
+
+중력을 추가하는 컴포넌트: RigidBody
+
+충돌을 만드는 컴포넌트: Collider
+
+커스텀 컴포넌트: Script
+
+
+preferences-external tools: 기본적으로 열리는 툴 설정
+
+앞으로 할일: 빨간색 에러가 뜨면 그걸 고치는 것, Assets\Scripts\Player.cs(10,14): error CS1002: ; expected 
+
+에러 주소를 복붙해서 검색
+
+
+클래스의 멤버변수는 기본적으로 private 상태로 만들어짐. 이를 바꿔서 바깥에서 수정 가능하게 하려면 
+[Serializefield] 또는 public으로 바꿔줘야함.
+
+public Transform playerStartPosition: Transform 타이븨 playerStartPosition 변수(버튼) 생성하고 외부에서 수정할 수 있게함.
+
+
+*클래스
+
+Input 입력
+
+
+*메서드
+
+void Awake(): start보다 먼저 실행됨.
+
+*변수
+
+velocity: rigidbody2D 내부에서 속력을 결정하는 변수, 점프에 사용 
+
+
+한꺼번에 주석처리
+
+글자 바깥에서 shift 누르고 아래로 눌러서 범위 설정한 후 ctrl /
+
+
+카메라가 플레이어 따라가게 만들기
+
+1. package manager - packages:Unity Registry - ci 검색 - Cinemachine 설치
+
+2. 하이어라키창 우클릭 - cinemacine - 2d camera - follow - capsule
+
+3. create empty - confiner로 수정 - polygon collider 추가 - 카메라가 이동할 영역 설정 - cinemachine에 extensition - confiner2D 
+
+
+문제
+
+transform 대문자 안쓰는 이유: player는 monobehaviour 상속함. 결국엔 transform을 상속하기에 대문자로 안써도 됨.
+
+상속 확인 버튼 f12, 뒤로가기 버튼 ctrl -
+
+new 쓰는 이유: new 키워드를 쓰는 이유는 메모리 상에 새로운 객체, 즉 인스턴스를 생성한다는 의미
+
+void Awake: 데이터형이 쓰이는 이유
+
+
+
+*오류
+
+CS1512: 변수의 타입을 입력 안했을때
+
+
+
+학습방식
+
+무조건 고치고 넘어가거나 안되도 넘어가서 하거나
