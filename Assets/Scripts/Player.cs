@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player1 : MonoBehaviour
 {
     public float moveSpeed;
     public Transform playerStartPosition;
@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
 
         rigid.velocity = new Vector2(moveInputX * moveSpeed, rigid.velocity.y); 
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             CreateDust();
             rigid.velocity = new Vector2(rigid.velocity.x, 10);

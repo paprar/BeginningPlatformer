@@ -1,0 +1,5 @@
+벽 미끄러지게 하는법
+
+1. physics material 써서 friction값을 0으로 설정
+
+2. platform effector 설정
