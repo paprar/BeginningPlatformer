@@ -1,0 +1,124 @@
+유튜브 오디오 보관함
+
+로그인하고 스튜디오에서 찾기-음악, 음향효과 등 나옴.
+
+virustotal: 바이러스 체크 사이트
+
+chiptone: 랜덤 효과음 발생기
+
+
+
+빈 공간 sound manager
+
+bgm, sfx 파일 
+
+각각 audio source 추가
+
+
+게임 만들때 분석하기
+
+
+clip: 음원파일 정보
+
+source: 클립을 이용해서 실행하고 실행방식을 정함.
+f12 클래스 정보, audio Source 컴포넌트에는 멤버변수
+로 audioclip을 넣을 수 있는 프로퍼티인 AudioClip이 있음.
+
+
+debug 모드 inspector 창 클릭하고 normal에서 변경
+
+
+private audiosource bgmPlayer;
+
+[field:serializeField] public get set
+
+
+
+public static SoundManager Instance;
+
+static: 정적, 단 한개의 클래스로만 존재할 수 있게함.
+
+싱글톤 패턴
+
+SoundManager.Instance.PlaySFX("Coin");
+
+playSFX 앞에 Instance 추가하면 오류 안생김.
+
+
+
+DontDestroyOnLoad(gameObject); 명령어에 의해 파괴되지 않음.
+
+
+
+컴포넌트: Animator
+
+스프라이트에 추가
+
+tilemap에 animator 폴더 추가
+
+우클릭-create-animator controller 추가
+
+스프라이트1에 컴포넌트로 animator 추가하고 controller1 넣기
+
+스프라이트1 선택하고 ctrl 6 또는 window-animation 창 열기
+
+create하고 애니메이션 상태 추가 1_idle로
+
+애니메이션 스프라이트 배치
+
+스프라이트 또는 transform 수정  가능
+
+transform-rotation을 수정: 녹화버튼 누르고 중간 값 바꾸면 스프라이트가 회전하게 함.
+
+*복붙하려면 ctrlc ctrlv 하는데 축을 바꾸고 붙여넣어야함.
+
+
+애니메이터 컨트롤러 클릭하면 애니메이션 1_idle이 들어가있음.
+
+
+애니메이션 창에서 애니메이션 이름 클릭하면 다른 클립 만들 수 있음.
+
+
+애니메이터 설정( 워크에서 점프로 전환)
+애니메이터 들어가서 워크에서 우클릭 make transition으로 점프와 오고가는 화살표 만들기
+
+
+조건부로 실행하게 하기
+
+애니메이터-layers 옆 parameter 클릭,trigger-jump 추가
+
+jump 클립에서 walk로 가는 방향에서 condition에 jump 추가-> settrigger안하면 안됨.
+
+
+
+parameter trigger 형태의 jump
+
+trigger (o) 클릭 -> 트리거 작동함.
+
+transition(전환효과) 구현
+
+코드로 바꿈.
+
+animator animator;
+
+void Start()
+{
+	animator = GetComponent<Animator>();
+}
+
+Update()
+{
+	if(input.GetKeyDown(KeyCode.Space)
+{
+	//힘을 줘서 점프하는 로직
+	//사운드 출력
+	//파티클 생성
+	animator.SetTrigger("jump");
+}
+
+
+transform right, 
+
+
+비쥬얼 스튜디오 키는 단축키
+
