@@ -41,14 +41,22 @@ public class PlayerTest6_1 : MonoBehaviour
 
         isLadder = Physics2D.Raycast(transform.position, Vector2.right, 1.1f, LadderLayer);
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             sprite.flipX = true;
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                animator.SetTrigger("jump right");
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             sprite.flipX = false;
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                animator.SetTrigger("jump left");
+            }
         }
 
 
@@ -66,7 +74,6 @@ public class PlayerTest6_1 : MonoBehaviour
                 SoundManager.Instance.PlaySFX("Jump");
                 rigid.velocity = new Vector2(rigid.velocity.x, jumpForce*3);
             }
-            animator.SetTrigger("jump");
 
         }
     }
