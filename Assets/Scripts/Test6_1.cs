@@ -18,8 +18,6 @@ public class PlayerTest6_1 : MonoBehaviour
     public LayerMask groundLayer;
     public LayerMask LadderLayer;
 
-    public bool FlipX = false;
-
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();

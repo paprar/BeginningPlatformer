@@ -34,3 +34,6 @@ public class Example : MonoBehaviour
 
 
 gpt로는 코드로 설정하는 것 이외에 컴포넌트로 설정하는 문제를 해결하기 힘듬. 해당 기능을 하는 컴포넌트를 알고 있어야 함.
+
+
+shift enter: 엔터 누르면 실행되는 창에서 엔터 누르지 않고 줄만 한칸 내리게 하기
