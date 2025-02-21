@@ -19,8 +19,38 @@ public class Death : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("You Died");
         
+        Debug.Log("You Died");
+        if (collision.gameObject.name == "Player")
+        {
+            StartCoroutine(ShowDeathInfo());
+            
+            StartCoroutine(TeleportAfterDelay(collision.gameObject));
+        }
+        
+    }
+
+    private IEnumerator ShowDeathInfo()
+    {
         Border.SetActive(true);
+        yield return new WaitForSeconds(3);
+        Border.SetActive(false);
+    }
+    private IEnumerator TeleportAfterDelay(GameObject player)
+    {
+        yield return new WaitForSeconds(3);
+
+        if (player != null)
+        {
+            if(PlayerPrefs.HasKey("SavePoint1"))
+            {
+                player.transform.position = new Vector2(37, 0);
+            }
+            else
+            {
+                player.transform.position = new Vector2(-8, -1);
+            }
+            
+        }
     }
 }
