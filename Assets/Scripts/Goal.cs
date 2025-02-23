@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Goal : MonoBehaviour
 {
     public GameObject ClearInfoObject;
+    public SceneLoader_Intro SceneLoader_Intro;
+    public GameObject SoundManager;
+    public int SceneIndex = 0;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -25,7 +29,12 @@ public class Goal : MonoBehaviour
             ClearInfoObject.SetActive(true);
             yield return new WaitForSeconds(3);
             ClearInfoObject.SetActive(false);
+            LoadScene();
+            SoundManager.GetComponent<AudioSource>().Stop();
         }
-
+    }
+    public void LoadScene()
+    {
+        SceneManager.LoadScene(SceneIndex);
     }
 }
