@@ -15,7 +15,7 @@ public class Move1 : MonoBehaviour
     Animator animator;
     SpriteRenderer sprite;
 
-    private bool isGrounded = false;
+    public bool isGrounded = false;
     private bool isLadder = false;
     private bool isWall = false;
     private bool isWallSliding = false;
@@ -84,9 +84,12 @@ public class Move1 : MonoBehaviour
 
         // 점프 로직
         if (Input.GetKeyDown(KeyCode.Space))
-        { 
+        {
+            Debug.Log("점프");
+
             if (isGrounded)
             {
+                Debug.Log("땅 점프");
                 SoundManager.Instance.PlaySFX("Jump");
                 CreateDust();
                 rigid.velocity = new Vector2(rigid.velocity.x, jumpForce);
