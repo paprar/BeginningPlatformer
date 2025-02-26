@@ -28,10 +28,10 @@ public class SoundManager : MonoBehaviour
     public AudioClip jumpClip;
     public AudioClip coinClip;
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
+    //private void Awake()
+    //{
+    //    DontDestroyOnLoad(gameObject);
+    //}
 
     private void Start()
     {

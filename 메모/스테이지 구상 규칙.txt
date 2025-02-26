@@ -1,0 +1,9 @@
+플랫포머 게임 스테이지 구성 규칙
+
+배경,흙 경계는 카메라 밑에서 25칸 위까지
+
+밑 땅바닥은 카메라 밑에서 위로 3칸, 아래로 10칸까지(기본)
+
+메인 카메라: live camera가 virtual camera
+
+virtual camera: follow player, bounding shape 2d confiner

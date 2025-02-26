@@ -51,26 +51,31 @@ public class Move1 : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow))
         {
             sprite.flipX = true;
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                animator.SetTrigger("jump right");
-            }
+            animator.SetTrigger("walk");
+            //    if (Input.GetKeyDown(KeyCode.Space))
+            //    {
+            //        animator.SetTrigger("jump right");
+            //    }
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            sprite.flipX = false;
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                animator.SetTrigger("jump left");
-            }
+           sprite.flipX = false;
+           animator.SetTrigger("walk");
+            // if (Input.GetKeyDown(KeyCode.Space))
+            //  {
+            //      animator.SetTrigger("jump left");
         }
+        
 
         // 벽 슬라이딩 기능
         if (isWall && !isGrounded && rigid.velocity.y < 0)
         {
+            //천천히 내려가기
+
             isWallSliding = true;
-            rigid.velocity = new Vector2(0, -wallSlideSpeed); // 벽에서 천천히 내려가기
+            rigid.velocity = new Vector2(0, -wallSlideSpeed);
+                
         }
         else
         {
@@ -79,33 +84,36 @@ public class Move1 : MonoBehaviour
 
         // 점프 로직
         if (Input.GetKeyDown(KeyCode.Space))
-        {
+        { 
             if (isGrounded)
             {
                 SoundManager.Instance.PlaySFX("Jump");
                 CreateDust();
                 rigid.velocity = new Vector2(rigid.velocity.x, jumpForce);
             }
-            else if (isWallSliding) // 벽 점프
+            if (isWallSliding) // 벽 점프
             {
                 SoundManager.Instance.PlaySFX("Jump");
 
-                // 벽에서 반대 방향으로 점프 (왼쪽 벽이면 오른쪽 위로, 오른쪽 벽이면 왼쪽 위로)
-                float jumpDirection = sprite.flipX ? -1 : 1;
+                // 벽 점프 방향 설정 (왼쪽 벽이면 오른쪽 위로, 오른쪽 벽이면 왼쪽 위로)
+                float jumpDirection = sprite.flipX ? 1 : -1;
+
+                // 벽에서 떨어지는 속도를 반대 방향으로 강하게 적용
                 rigid.velocity = new Vector2(jumpDirection * wallJumpForce, jumpForce);
 
-                // 방향 반전
+                // 방향 반전 (즉시 방향을 바꿔 플레이어가 벽에 다시 붙지 않게 함)
                 sprite.flipX = !sprite.flipX;
             }
-            else if (isLadder) // 사다리에서 점프 가능
-            {
-                SoundManager.Instance.PlaySFX("Jump");
-                rigid.velocity = new Vector2(rigid.velocity.x, jumpForce * 2);
-            }
-            else
-            {
 
-            }
+            else if (isLadder) // 사다리에서 점프 가능
+        {
+            SoundManager.Instance.PlaySFX("Jump");
+            rigid.velocity = new Vector2(rigid.velocity.x, jumpForce * 2);
+        }
+        else
+        {
+
+        }
         }
 
         // **사다리 로직 수정 (위/아래 이동 가능)**
