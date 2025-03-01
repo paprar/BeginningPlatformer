@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1934436775554253941}
   - component: {fileID: 1735151084279775226}
   - component: {fileID: 1395982598568035956}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Move Dust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4844,8 +4844,9 @@ GameObject:
   - component: {fileID: 8516677045133036344}
   - component: {fileID: 2366642111837063993}
   - component: {fileID: 7735583955687873106}
-  - component: {fileID: 1209215999989100585}
-  m_Layer: 0
+  - component: {fileID: 2533630469325337090}
+  - component: {fileID: 2848439924376192681}
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -4861,7 +4862,7 @@ Transform:
   m_GameObject: {fileID: 3634707592521044881}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8, y: 0, z: 0}
+  m_LocalPosition: {x: 50.6, y: -1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5016,7 +5017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2601f7da89312644901dec20c7589da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1209215999989100585
+--- !u!114 &2533630469325337090
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5034,6 +5035,7 @@ MonoBehaviour:
   wallSlideSpeed: 0.5
   wallJumpForce: 10
   playerStartPosition: {fileID: 0}
+  isGrounded: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -5043,6 +5045,23 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &2848439924376192681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3634707592521044881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e5a0fe690c326d41b7eb21f4b8a5285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
+  knockbackForce: 5
+  invincibleTime: 2
+  blinkInterval: 0.2
+  obstacleLayerName: Obstacle
 --- !u!1 &5736600269140088683
 GameObject:
   m_ObjectHideFlags: 0
@@ -5052,7 +5071,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7171852164475917929}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WallCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}

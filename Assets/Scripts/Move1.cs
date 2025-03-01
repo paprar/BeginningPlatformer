@@ -10,10 +10,13 @@ public class Move1 : MonoBehaviour
     public float wallSlideSpeed = 0.5f; // 벽에 붙었을 때 떨어지는 속도
     public float wallJumpForce = 10f; // 벽 점프 힘
     public Transform playerStartPosition;
+
     private Rigidbody2D rigid;
-    ParticleSystem dust;
-    Animator animator;
-    SpriteRenderer sprite;
+    private Collider2D col; // Collider2D 추가
+    private ParticleSystem dust;
+    private Animator animator;
+    private SpriteRenderer sprite;
+    private PlayerHealth playerHealth; // PlayerHealth 스크립트 참조
 
     public bool isGrounded = false;
     private bool isLadder = false;
@@ -26,9 +29,11 @@ public class Move1 : MonoBehaviour
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
+        col = GetComponent<Collider2D>(); // Collider2D 가져오기
         dust = GetComponentInChildren<ParticleSystem>();
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
+        playerHealth = GetComponent<PlayerHealth>(); // PlayerHealth 컴포넌트 가져오기       
     }
 
     void Start()
@@ -38,8 +43,15 @@ public class Move1 : MonoBehaviour
 
     void Update()
     {
-        float moveInputX = Input.GetAxisRaw("Horizontal");
-        rigid.velocity = new Vector2(moveInputX * moveSpeed, rigid.velocity.y);
+        // 플레이어가 죽으면 이동, 점프 불가능 + Collider 비활성화
+        if (playerHealth.isDead)
+        {
+            return;
+        }
+
+            float moveInputX = Input.GetAxisRaw("Horizontal");
+            rigid.velocity = new Vector2(moveInputX * moveSpeed, rigid.velocity.y);
+        
 
         // 땅 감지
         isGrounded = Physics2D.Raycast(transform.position, Vector2.down, 1.1f, groundLayer);
@@ -52,38 +64,27 @@ public class Move1 : MonoBehaviour
         {
             sprite.flipX = true;
             animator.SetTrigger("walk");
-            //    if (Input.GetKeyDown(KeyCode.Space))
-            //    {
-            //        animator.SetTrigger("jump right");
-            //    }
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-           sprite.flipX = false;
-           animator.SetTrigger("walk");
-            // if (Input.GetKeyDown(KeyCode.Space))
-            //  {
-            //      animator.SetTrigger("jump left");
+            sprite.flipX = false;
+            animator.SetTrigger("walk");
         }
-        
 
         // 벽 슬라이딩 기능
         if (isWall && !isGrounded && rigid.velocity.y < 0)
         {
-            //천천히 내려가기
-
             isWallSliding = true;
             rigid.velocity = new Vector2(0, -wallSlideSpeed);
-                
         }
         else
         {
             isWallSliding = false;
         }
 
-        // 점프 로직
-        if (Input.GetKeyDown(KeyCode.Space))
+        // 점프 로직 (플레이어가 죽지 않았을 경우만 가능)
+        if (Input.GetKeyDown(KeyCode.Space) && !playerHealth.isDead)
         {
             Debug.Log("점프");
 
@@ -94,29 +95,19 @@ public class Move1 : MonoBehaviour
                 CreateDust();
                 rigid.velocity = new Vector2(rigid.velocity.x, jumpForce);
             }
-            if (isWallSliding) // 벽 점프
+            else if (isWallSliding) // 벽 점프
             {
                 SoundManager.Instance.PlaySFX("Jump");
 
-                // 벽 점프 방향 설정 (왼쪽 벽이면 오른쪽 위로, 오른쪽 벽이면 왼쪽 위로)
                 float jumpDirection = sprite.flipX ? 1 : -1;
-
-                // 벽에서 떨어지는 속도를 반대 방향으로 강하게 적용
                 rigid.velocity = new Vector2(jumpDirection * wallJumpForce, jumpForce);
-
-                // 방향 반전 (즉시 방향을 바꿔 플레이어가 벽에 다시 붙지 않게 함)
                 sprite.flipX = !sprite.flipX;
             }
-
             else if (isLadder) // 사다리에서 점프 가능
-        {
-            SoundManager.Instance.PlaySFX("Jump");
-            rigid.velocity = new Vector2(rigid.velocity.x, jumpForce * 2);
-        }
-        else
-        {
-
-        }
+            {
+                SoundManager.Instance.PlaySFX("Jump");
+                rigid.velocity = new Vector2(rigid.velocity.x, jumpForce * 2);
+            }
         }
 
         // **사다리 로직 수정 (위/아래 이동 가능)**
@@ -148,3 +139,5 @@ public class Move1 : MonoBehaviour
         dust.Play();
     }
 }
+
+

@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Death : MonoBehaviour
 {
-    public GameObject Border;
+    public GameObject DeathInfo;
+    private PlayerHealth playerHealth;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,9 +34,9 @@ public class Death : MonoBehaviour
 
     private IEnumerator ShowDeathInfo()
     {
-        Border.SetActive(true);
+        DeathInfo.SetActive(true);
         yield return new WaitForSeconds(3);
-        Border.SetActive(false);
+        DeathInfo.SetActive(false);
     }
     private IEnumerator TeleportAfterDelay(GameObject player)
     {
@@ -42,13 +44,13 @@ public class Death : MonoBehaviour
 
         if (player != null)
         {
-            if(PlayerPrefs.HasKey("SavePoint1"))
+            if(PlayerPrefs.HasKey("SavePoint0"))
             {
                 player.transform.position = new Vector2(37, 0);
             }
             else
             {
-                player.transform.position = new Vector2(-8, -1);
+                player.transform.position = new Vector2(-15, 1);
             }
             
         }

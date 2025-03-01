@@ -15,9 +15,9 @@ TagManager:
   - Interactable
   - Ladder
   - Wall
-  - 
-  - 
-  - 
+  - Obstacle
+  - Player
+  - Enemy
   - 
   - 
   - 

@@ -1,0 +1,5 @@
+UI 생성
+
+캔버스-Image-horizontal layout group 설정+content size fitter 설정
+
+가로로 이미지 추가할때 자동으로 간격 맞춰서 추가됨.

@@ -6,6 +6,7 @@ public class SavePoint : MonoBehaviour
 {
     public GameObject SaveInfoObject;
 
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.name == "Player")
@@ -14,9 +15,9 @@ public class SavePoint : MonoBehaviour
             //클리어 과정
 
             //값 저장
-            PlayerPrefs.SetInt("SavePoint1", 1);
+            PlayerPrefs.SetInt("SavePoint0", 1);
             PlayerPrefs.Save();
-            Debug.Log("SavePoint1 저장됨!");
+            Debug.Log("SavePoint0 저장됨!");
 
             //플레이어와 충돌하면 Clear Info UI를 활성화하고 3초 후 비활성화
             StartCoroutine(ShowSaveInfo());
