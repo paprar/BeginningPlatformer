@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int health = 3; // 플레이어 체력
+    public int health, maxHealth; // 플레이어 체력
     public float knockbackForce = 5f; // 튕겨나는 힘
     public float invincibleTime = 2f; // 무적 시간
     public float blinkInterval = 0.2f; // 깜빡임 간격
@@ -20,20 +20,29 @@ public class PlayerHealth : MonoBehaviour
 
     public GameObject Border;
 
+    private HealthHeartController HC;
+    private HealthHeartController2 HC2;
+    private LifeController L;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>(); // Rigidbody2D 가져오기
         col = GetComponent<Collider2D>(); // Collider 가져오기
         sr = GetComponent<SpriteRenderer>(); // 스프라이트 렌더러 가져오기
         animator = GetComponent<Animator>();
+        HC = FindObjectOfType<HealthHeartController>();
+        HC2 = FindObjectOfType<HealthHeartController2>();
+        L = FindObjectOfType<LifeController>();
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (((1 << collision.gameObject.layer) & obstacleLayers) != 0 && !isInvincible && !isDead)
         {
+            SoundManager.Instance.PlaySFX("hurt");
             TakeDamage(1);
             Knockback(collision.transform);
+            HC2.ProcessHealthChange();
         }
     }
 
@@ -83,6 +92,7 @@ public class PlayerHealth : MonoBehaviour
 
         StartCoroutine(Respawn());
         StartCoroutine(ShowDeathInfo());
+
     }
 
     private IEnumerator Respawn()
@@ -92,7 +102,7 @@ public class PlayerHealth : MonoBehaviour
         yield return new WaitForSeconds(respawnTime); // 5초 대기
 
         // 부활 처리
-        health = 3; // 체력 초기화
+        health = maxHealth; // 체력 초기화
         isDead = false;
         isInvincible = true;
 
@@ -106,6 +116,24 @@ public class PlayerHealth : MonoBehaviour
 
         Debug.Log("플레이어 부활!");
         StartCoroutine(Invincibility()); // 부활 후 무적 상태 적용
+
+        //부활 시 체력 회복
+        if (HC != null)
+        {
+            HC.RestoreAllHealth();
+        }
+
+        // 체력 감소가 정상적으로 작동하도록 초기화
+        if (HC2 != null)
+        {
+            HC2.ResetHealthIndex();
+        }
+
+        // 목숨 UI 업데이트
+        if(L != null)
+        {
+            L.ReduceLife();
+        }
     }
 
     private IEnumerator ShowDeathInfo()

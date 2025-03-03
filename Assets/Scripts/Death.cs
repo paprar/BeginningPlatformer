@@ -6,10 +6,17 @@ public class Death : MonoBehaviour
 {
     public GameObject DeathInfo;
     private PlayerHealth playerHealth;
+    private HealthHeartController HC;
+    private HealthHeartController2 HC2;
+    private LifeController L;
+    public bool isDead = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        HC = FindAnyObjectByType<HealthHeartController>();
+        HC2 = FindAnyObjectByType<HealthHeartController2>();
+        L = FindAnyObjectByType<LifeController>();
         
     }
 
@@ -25,11 +32,12 @@ public class Death : MonoBehaviour
         Debug.Log("You Died");
         if (collision.gameObject.name == "Player")
         {
+
             StartCoroutine(ShowDeathInfo());
             
             StartCoroutine(TeleportAfterDelay(collision.gameObject));
         }
-        
+        isDead = true;
     }
 
     private IEnumerator ShowDeathInfo()
@@ -41,6 +49,15 @@ public class Death : MonoBehaviour
     private IEnumerator TeleportAfterDelay(GameObject player)
     {
         yield return new WaitForSeconds(3);
+        HC.RestoreAllHealth();
+        HC2.ResetHealthIndex();
+        isDead = false ;
+
+        // 목숨 UI 업데이트
+        if (L != null)
+        {
+            L.ReduceLife();
+        }
 
         if (player != null)
         {

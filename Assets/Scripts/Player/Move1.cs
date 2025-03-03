@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,7 @@ public class Move1 : MonoBehaviour
     private Animator animator;
     private SpriteRenderer sprite;
     private PlayerHealth playerHealth; // PlayerHealth 스크립트 참조
+    private Death death;
 
     public bool isGrounded = false;
     private bool isLadder = false;
@@ -33,7 +35,8 @@ public class Move1 : MonoBehaviour
         dust = GetComponentInChildren<ParticleSystem>();
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
-        playerHealth = GetComponent<PlayerHealth>(); // PlayerHealth 컴포넌트 가져오기       
+        playerHealth = GetComponent<PlayerHealth>(); // PlayerHealth 컴포넌트 가져오기
+        death = FindAnyObjectByType<Death>();
     }
 
     void Start()
@@ -46,11 +49,17 @@ public class Move1 : MonoBehaviour
         // 플레이어가 죽으면 이동, 점프 불가능 + Collider 비활성화
         if (playerHealth.isDead)
         {
+            rigid.velocity = new Vector2(0,-15f);
+            return;
+        }
+        else if (death.isDead)
+        {
+            rigid.velocity = new Vector2(0,0);
             return;
         }
 
-            float moveInputX = Input.GetAxisRaw("Horizontal");
-            rigid.velocity = new Vector2(moveInputX * moveSpeed, rigid.velocity.y);
+        float moveInputX = Input.GetAxisRaw("Horizontal");
+        rigid.velocity = new Vector2(moveInputX * moveSpeed, rigid.velocity.y);
         
 
         // 땅 감지
@@ -86,11 +95,9 @@ public class Move1 : MonoBehaviour
         // 점프 로직 (플레이어가 죽지 않았을 경우만 가능)
         if (Input.GetKeyDown(KeyCode.Space) && !playerHealth.isDead)
         {
-            Debug.Log("점프");
 
             if (isGrounded)
-            {
-                Debug.Log("땅 점프");
+            {     
                 SoundManager.Instance.PlaySFX("Jump");
                 CreateDust();
                 rigid.velocity = new Vector2(rigid.velocity.x, jumpForce);

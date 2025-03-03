@@ -23,10 +23,11 @@ public class SoundManager : MonoBehaviour
     }
     public AudioSource bgmPlayer;
     public AudioSource sfxPlayer;
-
+    
     public AudioClip bgmClip;
     public AudioClip jumpClip;
     public AudioClip coinClip;
+    public AudioClip hurtClip;
 
     //private void Awake()
     //{
@@ -52,6 +53,10 @@ public class SoundManager : MonoBehaviour
         if(sfxName == "Coin")
         {
             sfxPlayer.PlayOneShot(coinClip);
+        }
+        if(sfxName == "Hurt")
+        {
+            sfxPlayer.PlayOneShot(hurtClip);
         }
     }
 
