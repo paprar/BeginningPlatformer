@@ -1,0 +1,4 @@
+깃허브 이전에 저장한거 복구 방법
+
+지금꺼 지우고 새로 clone repository 한 다음 current repository 창의 changes 옆 history에서 원하는 버전을 우클릭하고 revert 누르면 됨.
+

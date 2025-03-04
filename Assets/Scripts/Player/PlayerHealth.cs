@@ -39,7 +39,6 @@ public class PlayerHealth : MonoBehaviour
     {
         if (((1 << collision.gameObject.layer) & obstacleLayers) != 0 && !isInvincible && !isDead)
         {
-            SoundManager.Instance.PlaySFX("hurt");
             TakeDamage(1);
             Knockback(collision.transform);
             HC2.ProcessHealthChange();
@@ -50,6 +49,7 @@ public class PlayerHealth : MonoBehaviour
     {
         health -= damage;
         Debug.Log("플레이어 피격! 남은 체력: " + health);
+        SoundManager.Instance.PlaySFX("hurt");
 
         if (health <= 0)
         {

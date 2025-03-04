@@ -17,6 +17,7 @@ public class Death : MonoBehaviour
         HC = FindAnyObjectByType<HealthHeartController>();
         HC2 = FindAnyObjectByType<HealthHeartController2>();
         L = FindAnyObjectByType<LifeController>();
+        playerHealth = FindAnyObjectByType<PlayerHealth>();
         
     }
 
@@ -52,6 +53,8 @@ public class Death : MonoBehaviour
         HC.RestoreAllHealth();
         HC2.ResetHealthIndex();
         isDead = false ;
+
+        playerHealth.health = playerHealth.maxHealth;
 
         // 목숨 UI 업데이트
         if (L != null)
