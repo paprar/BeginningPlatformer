@@ -9,9 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Scene/Intro.unity
     guid: 3f3e425fb6f4ff247b86db249f543383
   - enabled: 1
+<<<<<<< Updated upstream
     path: Assets/Scenes/Main Scene/GameOver.unity
     guid: e8ad1093798e73f4eaad546be1f06797
   - enabled: 1
+=======
+>>>>>>> Stashed changes
     path: Assets/Scenes/Main Scene/Stage 0.unity
     guid: be5d104fc95faf74eb42a54303cf4831
   - enabled: 1

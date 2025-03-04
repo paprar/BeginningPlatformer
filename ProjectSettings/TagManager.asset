@@ -16,8 +16,13 @@ TagManager:
   - Ladder
   - Wall
   - Obstacle
+<<<<<<< Updated upstream
   - Player
   - Enemy
+=======
+  - 
+  - 
+>>>>>>> Stashed changes
   - 
   - 
   - 
