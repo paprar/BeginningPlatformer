@@ -5,7 +5,7 @@ using UnityEngine;
 public class Death : MonoBehaviour
 {
     public GameObject DeathInfo;
-    private PlayerHealth playerHealth;
+    private PlayerHealth PH;
     private HealthHeartController HC;
     private HealthHeartController2 HC2;
     private LifeController L;
@@ -14,6 +14,7 @@ public class Death : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PH = FindAnyObjectByType<PlayerHealth>();
         HC = FindAnyObjectByType<HealthHeartController>();
         HC2 = FindAnyObjectByType<HealthHeartController2>();
         L = FindAnyObjectByType<LifeController>();
@@ -51,6 +52,7 @@ public class Death : MonoBehaviour
         yield return new WaitForSeconds(3);
         HC.RestoreAllHealth();
         HC2.ResetHealthIndex();
+        PH.health = PH.maxHealth;
         isDead = false ;
 
         // 목숨 UI 업데이트
