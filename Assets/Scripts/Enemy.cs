@@ -11,10 +11,8 @@ public class RandomMovingEnemy : MonoBehaviour
     public LayerMask groundLayer; // 바닥 감지용 레이어
     public LayerMask obstacleLayer; // 장애물 감지 레이어
     public LayerMask playerLayer; // 플레이어 감지 레이어
-    public LayerMask enemyLayer;
     public float groundCheckDistance = 0.5f; // 바닥 감지 거리
     public int ObjectNumber;
-    public int Score;
 
     private Rigidbody2D rb;
     private Collider2D col;
@@ -24,7 +22,6 @@ public class RandomMovingEnemy : MonoBehaviour
     private int direction = 1; // 현재 이동 방향 (1: 오른쪽, -1: 왼쪽)
 
     private PlayerHealth PlayerHealth;
-    private ScoreController SC;
 
     private void Start()
     {
@@ -32,8 +29,6 @@ public class RandomMovingEnemy : MonoBehaviour
         col = GetComponent<Collider2D>();
         sr = GetComponent<SpriteRenderer>(); // SpriteRenderer 가져오기
         SetNewTargetPosition();
-
-        SC = FindObjectOfType<ScoreController>(); // ScoreController 찾기
 
         sr.flipY = false;
     }
@@ -101,7 +96,7 @@ public class RandomMovingEnemy : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // 장애물과 충돌하면 방향 반전
-        if (((1 << collision.gameObject.layer) & obstacleLayer & enemyLayer) != 0)
+        if (((1 << collision.gameObject.layer) & obstacleLayer) != 0)
         {
             ReverseDirection();
         }
@@ -111,21 +106,15 @@ public class RandomMovingEnemy : MonoBehaviour
         {
             if (collision.contacts[0].normal.y < -0.5f) // 위에서 충돌한 경우
             {
-                Died();
+                FallDown();
             }
         }
     }
 
-    private void Died()
+    private void FallDown()
     {
         col.enabled = false; // Collider 비활성화 (바닥을 통과하게 됨)
         sr.flipY = true;
-
-        // 점수 추가
-        if (SC != null)
-        {
-            SC.GainScore(Score); // 10점 추가 (원하는 점수로 변경 가능)
-        }
         Destroy(gameObject, 2f); // 2초 후 삭제
         //Respawn();
     }
