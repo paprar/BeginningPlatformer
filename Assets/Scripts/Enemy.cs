@@ -106,6 +106,7 @@ public class RandomMovingEnemy : MonoBehaviour
         {
             if (collision.contacts[0].normal.y < -0.5f) // 위에서 충돌한 경우
             {
+                SoundManager.Instance.PlaySFX("Hurt");
                 FallDown();
             }
         }

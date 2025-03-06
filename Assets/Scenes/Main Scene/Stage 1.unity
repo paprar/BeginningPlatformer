@@ -62361,9 +62361,9 @@ PrefabInstance:
       value: SoundManager
       objectReference: {fileID: 0}
     - target: {fileID: 6508787784871331295, guid: 3e4a0931c3f36f648b6a975f74bc37ae, type: 3}
-      propertyPath: hurtClip
+      propertyPath: bgmClip
       value: 
-      objectReference: {fileID: 8300000, guid: 4500ce0819d470c4091d385ebd684ae9, type: 3}
+      objectReference: {fileID: 8300000, guid: 1d13fc52ed0c1e74e9ef88372b60858b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

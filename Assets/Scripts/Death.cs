@@ -29,7 +29,7 @@ public class Death : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        SoundManager.Instance.PlaySFX("Died");
         Debug.Log("You Died");
         if (collision.gameObject.name == "Player")
         {

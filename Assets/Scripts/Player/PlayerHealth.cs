@@ -49,7 +49,7 @@ public class PlayerHealth : MonoBehaviour
     {
         health -= damage;
         Debug.Log("플레이어 피격! 남은 체력: " + health);
-        SoundManager.Instance.PlaySFX("hurt");
+        SoundManager.Instance.PlaySFX("Hurt");
 
         if (health <= 0)
         {
@@ -84,6 +84,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void Die()
     {
+        SoundManager.Instance.PlaySFX("Died");
         Debug.Log("플레이어 사망!");
         isDead = true;
         rb.gravityScale = 1f;

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SoundManager : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip jumpClip;
     public AudioClip coinClip;
     public AudioClip hurtClip;
+    public AudioClip diedClip;
 
     //private void Awake()
     //{
@@ -36,7 +38,7 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
-        PlayBGM();
+            PlayBGM();
     }
     public void PlayBGM()
     {
@@ -57,6 +59,10 @@ public class SoundManager : MonoBehaviour
         if(sfxName == "Hurt")
         {
             sfxPlayer.PlayOneShot(hurtClip);
+        }
+        if(sfxName == "Died")
+        {
+            sfxPlayer.PlayOneShot(diedClip);
         }
     }
 
