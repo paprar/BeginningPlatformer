@@ -22,6 +22,7 @@ public class RandomMovingEnemy : MonoBehaviour
     private int direction = 1; // 현재 이동 방향 (1: 오른쪽, -1: 왼쪽)
 
     private PlayerHealth PlayerHealth;
+    private ScoreController score;
 
     private void Start()
     {
@@ -29,6 +30,7 @@ public class RandomMovingEnemy : MonoBehaviour
         col = GetComponent<Collider2D>();
         sr = GetComponent<SpriteRenderer>(); // SpriteRenderer 가져오기
         SetNewTargetPosition();
+        score = FindObjectOfType<ScoreController>();
 
         sr.flipY = false;
     }
@@ -108,6 +110,10 @@ public class RandomMovingEnemy : MonoBehaviour
             {
                 SoundManager.Instance.PlaySFX("Hurt");
                 FallDown();
+                if (score != null)
+                {
+                    score.GainScore(100);
+                }
             }
         }
     }
