@@ -112,6 +112,7 @@ public class RandomMovingEnemy : MonoBehaviour
                 FallDown();
                 if (score != null)
                 {
+                    Debug.Log("Score added");
                     score.GainScore(100);
                 }
             }

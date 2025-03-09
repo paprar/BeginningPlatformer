@@ -5,14 +5,15 @@ using TMPro;
 
 public class ScoreController : MonoBehaviour
 {
-    public TMP_Text Scoretext;
+    public TMP_Text scoreText;
+    private int currentScore = 0;
 
-    public float killEnemyPoint = 10.5f;
+    //public float killEnemyPoint = 10.5f;
 
     // Start is called before the first frame update
     void Start()
     {
-        GainScore(GetScoreByParam(5));
+
     }
 
     // Update is called once per frame
@@ -21,13 +22,14 @@ public class ScoreController : MonoBehaviour
         
     }
 
-    public void GainScore(float Score)
+    public void GainScore(int Score)
     {
-        Scoretext.text += Score;
+        currentScore += Score;
+        scoreText.text = "" + currentScore.ToString();
     }
 
-    public float GetScoreByParam(float value)
-    {
-        return value * killEnemyPoint;
-    }
+    //public float GetScoreByParam(float value)
+    //{
+    //    return value * killEnemyPoint;
+    //}
 }
