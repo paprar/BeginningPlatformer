@@ -15,13 +15,14 @@ public class RandomBox : MonoBehaviour
     public ParticleSystem broken;
 
     private ScoreController score;
-
+    private CoinController coin;
 
     private void Start()
     {
         _sr = GetComponentInParent<SpriteRenderer>();
         broken = GetComponentInChildren<ParticleSystem>();
         score = FindAnyObjectByType<ScoreController>();
+        coin = FindAnyObjectByType<CoinController>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -34,6 +35,7 @@ public class RandomBox : MonoBehaviour
 
             Instantiate(CoinPrefab, transform.position, Quaternion.identity);
             score.GainScore(20);
+            coin.GetCoin(1);
 
             // 부모의(오브젝트 이름이 randombox 안의) spriterenderer요소의 sprite 값을 tilemap_29로 변경하라.
             _sr.sprite = unActivateBoxSpriteRenderer;
