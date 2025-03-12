@@ -4844,8 +4844,8 @@ GameObject:
   - component: {fileID: 8516677045133036344}
   - component: {fileID: 2366642111837063993}
   - component: {fileID: 7735583955687873106}
-  - component: {fileID: 2533630469325337090}
   - component: {fileID: 2848439924376192681}
+  - component: {fileID: 7788769394389273320}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -4862,7 +4862,7 @@ Transform:
   m_GameObject: {fileID: 3634707592521044881}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 50.6, y: -1.5, z: 0}
+  m_LocalPosition: {x: -15, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5017,34 +5017,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2601f7da89312644901dec20c7589da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2533630469325337090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3634707592521044881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c599801c38d8d042b4cd8b87595de77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  jumpForce: 8
-  climbSpeed: 2
-  wallSlideSpeed: 0.5
-  wallJumpForce: 10
-  playerStartPosition: {fileID: 0}
-  isGrounded: 0
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  LadderLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!114 &2848439924376192681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5058,10 +5030,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+  maxHealth: 3
   knockbackForce: 5
   invincibleTime: 2
   blinkInterval: 0.2
-  obstacleLayerName: Obstacle
+  obstacleLayers:
+    serializedVersion: 2
+    m_Bits: 2560
+  isInvincible: 0
+  isDead: 0
+  Border: {fileID: 0}
+--- !u!114 &7788769394389273320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3634707592521044881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c599801c38d8d042b4cd8b87595de77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  jumpForce: 9
+  climbSpeed: 2
+  wallSlideSpeed: 0.5
+  wallJumpForce: 10
+  playerStartPosition: {fileID: 0}
+  isGrounded: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 392
+  LadderLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &5736600269140088683
 GameObject:
   m_ObjectHideFlags: 0

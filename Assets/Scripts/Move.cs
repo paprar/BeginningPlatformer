@@ -5,7 +5,7 @@ using UnityEngine;
 public class Move : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public float jumpForce = 8f;
+    public float jumpForce = 9f;
     public float climbSpeed = 2f;
     public float wallSlideSpeed = 0.5f; // 벽에 붙었을 때 떨어지는 속도 // 벽 점프
     public float wallJumpForce = 10f; // 벽 점프 힘 // 벽 점프

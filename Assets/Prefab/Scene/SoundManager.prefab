@@ -176,9 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgmPlayer: {fileID: 3759913322507796815}
   sfxPlayer: {fileID: 65008705520580309}
-  bgmClip0: {fileID: 8300000, guid: 95bc00232197e4e40854ad15d982a8aa, type: 3}
-  bgmClip1: {fileID: 8300000, guid: dfb64e6231db8e549809ad4d858475bd, type: 3}
-  bgmClip2: {fileID: 8300000, guid: 1d13fc52ed0c1e74e9ef88372b60858b, type: 3}
+  bgmClip: {fileID: 8300000, guid: 1d13fc52ed0c1e74e9ef88372b60858b, type: 3}
   jumpClip: {fileID: 8300000, guid: c785de70af4bf674f953186fefc602c6, type: 3}
   coinClip: {fileID: 8300000, guid: 0f1ec98a0ca141c43b38a6914e75a865, type: 3}
   hurtClip: {fileID: 8300000, guid: 4500ce0819d470c4091d385ebd684ae9, type: 3}
