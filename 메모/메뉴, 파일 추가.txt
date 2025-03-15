@@ -1,0 +1,3 @@
+[CreateAssetMenu(fileName = "Key", menuName = "Item/Key")]
+
+마우스 우클릭 Create에서 Item 메뉴 추가, Key 파일 추가
