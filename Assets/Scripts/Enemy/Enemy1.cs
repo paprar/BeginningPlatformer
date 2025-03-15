@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class RandomMovingEnemy : MonoBehaviour
+public class Enemy1 : MonoBehaviour
 {
     public float speed = 2f;
     public float minMoveDistance = 2f; // 이동 최소 거리 증가
@@ -59,14 +59,37 @@ public class RandomMovingEnemy : MonoBehaviour
 
         // 장애물, 다른 적 감지 및 자기 자신 제외
         RaycastHit2D hitObstacle = Physics2D.Raycast(transform.position, Vector2.right * direction, 0.3f, obstacleLayer);
-        RaycastHit2D hitEnemy = Physics2D.Raycast(transform.position, Vector2.right * direction, 0.3f, enemyLayer);
 
-        if ((hitObstacle.collider != null) || (hitEnemy.collider != null && hitEnemy.collider.gameObject != gameObject) || !IsGroundAhead())
+        if ((hitObstacle.collider != null) || !IsGroundAhead())
         {
             ReverseDirection();
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // 장애물과 충돌하면 방향 반전
+        if (((1 << collision.gameObject.layer) & obstacleLayer) != 0)
+        {
+            ReverseDirection();
+            Debug.Log("[Enemy] Collided with another enemy. Reversing direction.");
+        }
+
+        // 플레이어가 적을 위에서 밟았는지 체크
+        if (((1 << collision.gameObject.layer) & playerLayer) != 0)
+        {
+            if (collision.contacts[0].normal.y < -0.5f)
+            {
+                SoundManager.Instance.PlaySFX("Hurt");
+                FallDown();
+                if (score != null)
+                {
+                    Debug.Log("Score added");
+                    score.GainScore(100);
+                }
+            }
+        }
+    }
 
     private IEnumerator WaitAndSetNewTarget()
     {
@@ -109,40 +132,6 @@ public class RandomMovingEnemy : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(groundCheckPosition, Vector2.down, groundCheckDistance, groundLayer);
 
         return hit.collider != null;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        // 장애물과 충돌하면 방향 반전
-        if (((1 << collision.gameObject.layer) & obstacleLayer) != 0)
-        {
-            ReverseDirection();
-        }
-
-        // 적과 충돌 시 방향 전환 (반복적인 변경 방지)
-        if (((1 << collision.gameObject.layer) & enemyLayer) != 0)
-        {
-            if (collision.relativeVelocity.magnitude > 0.1f)
-            {
-                ReverseDirection();
-                Debug.Log("[Enemy] Collided with another enemy. Reversing direction.");
-            }
-        }
-
-        // 플레이어가 적을 위에서 밟았는지 체크
-        if (((1 << collision.gameObject.layer) & playerLayer) != 0)
-        {
-            if (collision.contacts[0].normal.y < -0.5f)
-            {
-                SoundManager.Instance.PlaySFX("Hurt");
-                FallDown();
-                if (score != null)
-                {
-                    Debug.Log("Score added");
-                    score.GainScore(100);
-                }
-            }
-        }
     }
 
     private void FallDown()

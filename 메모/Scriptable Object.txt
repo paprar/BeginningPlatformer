@@ -1,0 +1,14 @@
+[CreateAssetMenu(fileName = "Key", menuName = "Item/Key")]
+public class Item : ScriptableObject
+{
+    public int itemNumber = -1;    // 0부터 시작하는 아이템 번호, 
+    public string itemName = " ";
+    public string itemDescription = "아이템 정보를 입력해주세요.";
+}
+
+마우스 우클릭 Create에서 Item 메뉴 추가, Key 파일 추가
+
+파일 Key의 내용은 아이템 번호, 이름, 정보를 입력할 수 있도록 함.
+
+
+
