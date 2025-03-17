@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class HeartItem : MonoBehaviour
 {
-    private ParticleSystem coinParticle;
+    private ParticleSystem heartParticle;
     private ScoreController score;
-    private CoinController coin;
+    private HealthHeartController HC;
+    private PlayerHealth PH;
     // Start is called before the first frame update
     void Start()
     {
-        coinParticle = GetComponentInChildren<ParticleSystem>();
+        heartParticle = GetComponentInChildren<ParticleSystem>();
         score = FindAnyObjectByType<ScoreController>();
-        coin = FindAnyObjectByType<CoinController>();
+        HC = FindAnyObjectByType<HealthHeartController>();
+        PH = FindAnyObjectByType<PlayerHealth>();
 
     }
 
@@ -24,14 +26,16 @@ public class HeartItem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.name == "Player")
+        if (collision.gameObject.name == "Player")
         {
-            Debug.Log("ÄÚÀÎ È¹µæ");
-            coinParticle.Play();
+            Debug.Log("ÇÏÆ® È¹µæ");
+            HC.RestoreCurrentHealth();
+            PH.RestoreHealth();
             score.GainScore(20);
-            coin.GetCoin(1);
-            Destroy(gameObject,0.5f);
+            heartParticle.Play();
+            Destroy(gameObject, 0.5f);
         }
+        
         
     }
 }

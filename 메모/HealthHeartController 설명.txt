@@ -1,0 +1,36 @@
+캔버스
+
+HealthHeartController는 Canvas-Up info HUD-Panel image-Hp Container에 있고
+
+HealthHeartController2는 GameManager에 있음.
+
+
+HealthHeartController
+
+- UpdateChildrenHealthStatus: 자식 오브젝트의 개수 가져오기, 2개 미만이면 리턴, i가 0에서 자식 오브젝트 개수-1개만큼 1씩 더했을때 현재 자식 오브젝트(i번째)와 그 다음 자식 오브젝트(i+1번째)의 컴포넌트 HealthHeart 가져오기
+
+현재자식오브젝트와 다음 자식오브젝트가 둘다 null이 아니고 다음 자식 오브젝트의 GetCurrentHealthState가 empty가 아닐때 현재 자식의 하트 이미지를 Full로 설정함.
+
+-> 자식 오브젝트는 3개, 자식개수를 2개까지 반복계산함. 다음 오브젝트가 4번째인건 없으니까. 그리고 현재 다음 자식 오브젝트의 하트 이미지가 빈게 아니면 현재 자식 오브젝트의 하트 이미지는 다 채워진 상태로 함.
+
+-> 3번째 하트가 빈 상태가 아니라면 2번째 하트도 비어지지 않게 하는것
+
+
+- RestoreAllHealth: 0에서 자식개수만큼 1씩 더하면서 i번째 자식 오브젝트의 HealthHeart 컴포넌트를 가져와서 해당 오브젝트가 null이 아닌 경우 이미지를 다 채워진 상태로 함.
+
+-> 모든 자식 오브젝트의 상태를 full로 변경, 모두 회복
+
+
+HealthHeartController2
+
+부모 오브젝트를 설정하고 자식의 인덱스 설정, 상태 변경 상태 설정, 시작할때 HC1번 컴포넌트 불러오고, 체력 인덱스 초기화함.
+
+- ResetHealthIndex: 부모오브젝트가 null이 아닌경우 자식의 인덱스는 부모오브젝트의 자식 개수의 -1번째. 부모 오브젝트의 자식 개수는 3개이므로 자식의 인덱스는 2번째로 오게함. 
+
+-> 부활 시 호출해서 체력 감소가 정상적으로 동작하도록 초기화함.
+
+- ModifySpecificHealth: 부모 오브젝트가 null이거나 인덱스가 0보다 작거나 인덱스가 부모 오브젝트의 자식개수 이상일때 오류 메세지 출력, 타겟 = 부모오브젝트의 자식오브젝트의 HealthHeart 불러와서 null이 아닐때 하트 이미지 업데이트 시킴. -> 자식 오브젝트에 HealthHeart가 존재할 경우 상태 변경
+
+
+둘다 합치면 데미지 받았을때 하트 이미지가 왼쪽부터 깎임.
+

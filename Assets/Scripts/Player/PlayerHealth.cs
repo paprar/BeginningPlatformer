@@ -21,7 +21,6 @@ public class PlayerHealth : MonoBehaviour
     public GameObject Border;
 
     private HealthHeartController HC;
-    private HealthHeartController2 HC2;
     private LifeController L;
 
     private void Start()
@@ -31,7 +30,6 @@ public class PlayerHealth : MonoBehaviour
         sr = GetComponent<SpriteRenderer>(); // 스프라이트 렌더러 가져오기
         animator = GetComponent<Animator>();
         HC = FindObjectOfType<HealthHeartController>();
-        HC2 = FindObjectOfType<HealthHeartController2>();
         L = FindObjectOfType<LifeController>();
     }
 
@@ -41,10 +39,14 @@ public class PlayerHealth : MonoBehaviour
         {
             TakeDamage(1);
             Knockback(collision.transform);
-            HC2.ProcessHealthChange();
+            HC.ProcessHealthChange();
+            Debug.Log("Hurt");
         }
     }
-
+    public void RestoreHealth()
+    {
+        health = health+1;
+    }
     public void TakeDamage(int damage)
     {
         health -= damage;
@@ -118,20 +120,17 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("플레이어 부활!");
         StartCoroutine(Invincibility()); // 부활 후 무적 상태 적용
 
-        //부활 시 체력 회복
+
+        // 체력 감소가 정상적으로 작동하도록 초기화
         if (HC != null)
         {
             HC.RestoreAllHealth();
-        }
+            HC.ResetHealthIndex();
 
-        // 체력 감소가 정상적으로 작동하도록 초기화
-        if (HC2 != null)
-        {
-            HC2.ResetHealthIndex();
         }
 
         // 목숨 UI 업데이트
-        if(L != null)
+        if (L != null)
         {
             L.ReduceLife();
         }
