@@ -5272,6 +5272,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5764615738954688215, guid: 9355e030526f5e04cb51cdeea2862994, type: 3}
   m_PrefabInstance: {fileID: 94961846}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &167218707
 GameObject:
   m_ObjectHideFlags: 0
@@ -5542,6 +5544,10 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d65a9933913bad44a6b8b9edc1d4211, type: 3}
+=======
+>>>>>>> parent of 244c4af (25.3.11)
+=======
+>>>>>>> parent of 244c4af (25.3.11)
 --- !u!1001 &270623082
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25170,10 +25176,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4793870296529012936, guid: fb58149f70ec0b548b5d101db29de695, type: 3}
-      propertyPath: m_text
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5149629433477482246, guid: fb58149f70ec0b548b5d101db29de695, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -25246,10 +25248,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8140311383720828126, guid: fb58149f70ec0b548b5d101db29de695, type: 3}
-      propertyPath: m_Name
-      value: Life Container
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 3476992801020413116, guid: fb58149f70ec0b548b5d101db29de695, type: 3}
@@ -25279,9 +25277,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8895376982710144319, guid: fb58149f70ec0b548b5d101db29de695, type: 3}
       insertIndex: -1
       addedObject: {fileID: 496426838}
-    - targetCorrespondingSourceObject: {fileID: 7906531489988817047, guid: fb58149f70ec0b548b5d101db29de695, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1616479188}
   m_SourcePrefab: {fileID: 100100000, guid: fb58149f70ec0b548b5d101db29de695, type: 3}
 --- !u!1 &552825096
 GameObject:
@@ -43113,7 +43108,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeText: {fileID: 575510418}
-  lifeCount: 2
 --- !u!114 &575510418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91788,6 +91782,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5764615738954688215, guid: 9355e030526f5e04cb51cdeea2862994, type: 3}
   m_PrefabInstance: {fileID: 453592156}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &1125009107
 GameObject:
   m_ObjectHideFlags: 0
@@ -92001,6 +91997,10 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d65a9933913bad44a6b8b9edc1d4211, type: 3}
+=======
+>>>>>>> parent of 244c4af (25.3.11)
+=======
+>>>>>>> parent of 244c4af (25.3.11)
 --- !u!1001 &1163237412
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -112498,6 +112498,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+<<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &1616479186 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7906531489988817047, guid: fb58149f70ec0b548b5d101db29de695, type: 3}
@@ -112549,11 +112551,19 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1634447677
+=======
+--- !u!4 &1520333120
+>>>>>>> parent of 244c4af (25.3.11)
+=======
+--- !u!4 &1520333120
+>>>>>>> parent of 244c4af (25.3.11)
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
+<<<<<<< HEAD
   m_GameObject: {fileID: 1634447676}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
@@ -117551,11 +117561,30 @@ Transform:
   m_Father: {fileID: 1461081297}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1726427659
+=======
+=======
+>>>>>>> parent of 244c4af (25.3.11)
+  m_GameObject: {fileID: 1520333115}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 70.26, y: -2.33, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1520333121
+<<<<<<< HEAD
+>>>>>>> parent of 244c4af (25.3.11)
+=======
+>>>>>>> parent of 244c4af (25.3.11)
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
+<<<<<<< HEAD
   m_GameObject: {fileID: 1726427657}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -122656,6 +122685,35 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+=======
+=======
+>>>>>>> parent of 244c4af (25.3.11)
+  m_GameObject: {fileID: 1520333115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb759ed429b88ca49b35ea689bea7ef4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  minMoveDistance: 5
+  maxMoveDistance: 20
+  minWaitTime: 0
+  maxWaitTime: 2
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 776
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  groundCheckDistance: 0.5
+  ObjectNumber: 0
+<<<<<<< HEAD
+>>>>>>> parent of 244c4af (25.3.11)
+=======
+>>>>>>> parent of 244c4af (25.3.11)
 --- !u!1 &1796954857 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3771277587649681224, guid: fb58149f70ec0b548b5d101db29de695, type: 3}
@@ -148979,9 +149037,6 @@ SceneRoots:
   - {fileID: 1292349937}
   - {fileID: 1919608356}
   - {fileID: 1982397460}
-  - {fileID: 1155829111}
-  - {fileID: 269432703}
-  - {fileID: 187167979}
   - {fileID: 1881013653}
   - {fileID: 2101247393957500174}
   - {fileID: 960342314}
@@ -148990,5 +149045,11 @@ SceneRoots:
   - {fileID: 1282433764}
   - {fileID: 5105402846635501742}
   - {fileID: 749205344}
+<<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 1461081297}
   - {fileID: 1345686607}
+=======
+>>>>>>> parent of 244c4af (25.3.11)
+=======
+>>>>>>> parent of 244c4af (25.3.11)
