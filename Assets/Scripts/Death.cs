@@ -7,7 +7,6 @@ public class Death : MonoBehaviour
     public GameObject DeathInfo;
     private PlayerHealth playerHealth;
     private HealthHeartController HC;
-    private HealthHeartController2 HC2;
     private LifeController L;
     public bool isDead = false;
 
@@ -15,7 +14,6 @@ public class Death : MonoBehaviour
     void Start()
     {
         HC = FindAnyObjectByType<HealthHeartController>();
-        HC2 = FindAnyObjectByType<HealthHeartController2>();
         L = FindAnyObjectByType<LifeController>();
         playerHealth = FindAnyObjectByType<PlayerHealth>();
         
@@ -51,7 +49,7 @@ public class Death : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         HC.RestoreAllHealth();
-        HC2.ResetHealthIndex();
+        HC.ResetHealthIndex();
         isDead = false ;
 
         playerHealth.health = playerHealth.maxHealth;
