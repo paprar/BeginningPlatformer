@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3418497328775247339}
   - component: {fileID: 9009031525489759701}
   - component: {fileID: 593229251373288883}
+  - component: {fileID: 1111305884991942936}
   m_Layer: 0
   m_Name: Flag - Goal
   m_TagString: Untagged
@@ -26,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1569628032147698573}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 38, y: -1, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -51,6 +52,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ClearInfoObject: {fileID: 0}
+  SceneLoader_Intro: {fileID: 0}
+  SceneIndex: 0
 --- !u!61 &593229251373288883
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -96,6 +99,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4949684, y: 5.521275}
   m_EdgeRadius: 0
+--- !u!114 &1111305884991942936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569628032147698573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d81aee095c82e44d8ff7fa4aa84dc4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneIndex: 0
 --- !u!1 &3843833940467835751
 GameObject:
   m_ObjectHideFlags: 0

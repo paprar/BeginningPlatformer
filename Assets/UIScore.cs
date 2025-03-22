@@ -6,7 +6,7 @@ using TMPro;
 public class UIScore : MonoBehaviour
 {
     //¸â¹ö º¯¼ö
-    TextmeshProGUI bestScoreUI;
+    TextMeshProUGUI bestScoreUI;
 
     void Start()
     {
@@ -23,6 +23,6 @@ public class UIScore : MonoBehaviour
 
     void UpdateScore()
     {
-        bestScoreUI.text = $"Best Score : {PlyerPrefs.GetInt("BestScore", 0)}"; 
+        bestScoreUI.text = $"Best Score : {PlayerPrefs.GetInt("BestScore", 0)}"; 
     }
 }

@@ -9,6 +9,12 @@ public class Goal : MonoBehaviour
     public SceneLoader_Intro SceneLoader_Intro;
     public int SceneIndex = 0;
 
+    private void Start()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        int currentSceneIndex = currentScene.buildIndex;
+    }
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.name == "Player")
@@ -33,6 +39,6 @@ public class Goal : MonoBehaviour
     }
     public void LoadScene()
     {
-        SceneManager.LoadScene(SceneIndex);
+        //ceneManager.LoadScene(currentSceneIndex);
     }
 }
