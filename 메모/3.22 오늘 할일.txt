@@ -1,0 +1,30 @@
+저장 시스템
+
+1. 프로젝트 기본 셋팅
+2. 씬 만들기, 게임 오브젝트 생성, 컴포넌트 부착 기능을 구현.
+3. 게임의 데이터를 저장한다. 불러온다. Save & Load & Delete
+4. 점수 구현 - 최고 점수
+
+
+무엇을 저장하는가?
+
+- 점수(정수)
+
+어디에 저장하는가?
+
+- 컴퓨터 내부에 저장하는 법(File class)
+
+- 코드 내부에 데이터로 저장하는 법(PlayerPrefs)
+
+
+PlayerPrefs란?
+유니티에서 미리 구현해둔 저장하기 위한 클래스이다.
+
+문자열(string) 숫자 정수(int) 실수(float)
+PlayerPrefs, GetString, GetInt, Getfloat -Load
+	   SetString, SetInt, Setfloat - Save
+
+
+canvas- scale with screen size: 스케일 사이즈에 맞게 텍스트 설정
+
+#if 이런건 전처리문
