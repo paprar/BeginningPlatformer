@@ -135,8 +135,9 @@ GameObject:
   - component: {fileID: 154418502}
   - component: {fileID: 154418501}
   - component: {fileID: 154418500}
+  - component: {fileID: 154418499}
   m_Layer: 5
-  m_Name: GameLoad
+  m_Name: Button (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,6 +163,19 @@ RectTransform:
   m_AnchoredPosition: {x: -250, y: 0}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &154418499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154418497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92c9922fc1b268b4dbaa04dadf71510d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneIndex: 1
 --- !u!114 &154418500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,19 +219,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 154418501}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 183284378}
-        m_TargetAssemblyTypeName: SceneLoader_Start, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &154418501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,7 +272,7 @@ GameObject:
   - component: {fileID: 183284379}
   - component: {fileID: 183284378}
   m_Layer: 5
-  m_Name: GameStart
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -308,6 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92c9922fc1b268b4dbaa04dadf71510d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SceneIndex: 3
 --- !u!114 &183284379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,7 +357,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 183284378}
         m_TargetAssemblyTypeName: SceneLoader_Start, Assembly-CSharp
-        m_MethodName: StartScene
+        m_MethodName: LoadScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -670,7 +673,7 @@ GameObject:
   - component: {fileID: 914189375}
   - component: {fileID: 914189374}
   m_Layer: 5
-  m_Name: Settings
+  m_Name: Button (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -708,6 +711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92c9922fc1b268b4dbaa04dadf71510d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SceneIndex: 1
 --- !u!114 &914189375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1519,7 +1523,7 @@ GameObject:
   - component: {fileID: 1488546996}
   - component: {fileID: 1488546995}
   m_Layer: 5
-  m_Name: ExitGame
+  m_Name: Button (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
